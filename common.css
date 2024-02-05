@@ -8,4 +8,90 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("./images/pattern-background-mobile-light.svg");
+}
+/*mobile start menu styles*/
+.startMenu-header {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.svg-turn {
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--Purple, #a729f5);
+  width: 32px;
+  height: 20px;
+}
+.main-container {
+  padding: 16px 24px 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+.wellcome {
+  margin: 58px 0 40px;
+}
+.wellcome-h1 {
+  color: var(--Dark-Navy, #313e51);
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 100%;
+  padding: 0px 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.frontend-quiz {
+  color: var(--Dark-Navy, #313e51);
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 100%;
+}
+.pick {
+  color: var(--Grey-Navy, #626c7f);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+}
+.section-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.common-btn {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 16px;
+  align-self: stretch;
+  border-radius: 12px;
+  background: var(--Pure-White, #fff);
+  box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
+}
+#html-btn svg {
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: #fff1e9;
+}
+#css-btn svg {
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: #e0fdef;
+}
+#js-btn svg {
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: #ebf0ff;
+}
+#accessibility svg {
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: #f6e7ff;
 }
