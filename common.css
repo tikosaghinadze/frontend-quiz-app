@@ -97,3 +97,9 @@ body {
   height: 40px;
   background-color: #f6e7ff;
 }
+.category-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
