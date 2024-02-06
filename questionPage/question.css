@@ -16,6 +16,7 @@
 .question-box {
   margin-top: 48px;
 }
+
 .question {
   color: #313e51;
   font-size: 20px;
@@ -46,6 +47,11 @@
   width: 40px;
   height: 40px;
   background-color: #f6e7ff;
+}
+.question-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 .variant-btn {
   display: flex;
@@ -82,4 +88,24 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 100%;
+}
+.commonCorrect-svg {
+  display: none;
+}
+.commonError-svg {
+  display: none;
+}
+.submit-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 19px;
+  color: var(--Red, #ee5454);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 100%; /* 18px */
+}
+.submit-error {
+  display: none;
 }
