@@ -12,18 +12,21 @@ const savedAccesApi = JSON.stringify(savedAccesApiString);
 
 // Iterate over each object in the results array
 let questionIndex = 0;
-console.log(savedHtmlApi.results[questionIndex]);
+const button = document.querySelectorAll(".answers");
 function displayQuestion(questionIndex) {
   const questionObj = savedHtmlApi.results[questionIndex];
   const questionBox = document.querySelector(".question");
   questionBox.textContent = `${questionObj.question}`;
-
+  //spraid answers in one array
   const answers = [
     ...questionObj.incorrect_answers,
     questionObj.correct_answer,
   ];
   const shuffledAnswers = shuffleArray(answers);
-  console.log(shuffledAnswers);
+  //loop shuffledAnswers amd give content to dives
+  button.forEach((button, index) => {
+    button.textContent = shuffledAnswers[index];
+  });
 }
 displayQuestion(questionIndex);
 //write fuction witch will shuffle a answers
