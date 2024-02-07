@@ -9,7 +9,7 @@ htmlBtn.addEventListener("click", async () => {
       "https://opentdb.com/api.php?amount=10&category=22"
     );
     const htmlApi = await response.json();
-    localStorage.setItem("htmlApi", htmlApi);
+    localStorage.setItem("htmlApi", JSON.stringify(htmlApi));
     console.log(htmlApi);
   } catch (error) {
     console.log(error);
