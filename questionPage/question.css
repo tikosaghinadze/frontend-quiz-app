@@ -82,6 +82,7 @@
   font-weight: 500;
   line-height: 100%;
   margin-top: 12px;
+  cursor: pointer;
 }
 .answers {
   color: #313e51;
@@ -108,4 +109,7 @@
 }
 .submit-error {
   display: none;
+}
+.variant-btn.selected {
+  background-color: var(--Purple, #a729f5);
 }

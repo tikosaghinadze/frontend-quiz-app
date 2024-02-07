@@ -70,6 +70,7 @@ body {
   gap: 16px;
   align-self: stretch;
   border-radius: 12px;
+  cursor: pointer;
   background: var(--Pure-White, #fff);
   box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
 }
