@@ -15,17 +15,18 @@ let currentQuestionIndex = 0;
 const buttonAnswer = document.querySelectorAll(".common-btn");
 const answerBackground = document.querySelector(".variant-btn");
 const submitBtn = document.querySelector(".submit");
-submitBtn.style.display = "block";
 
 let selectedAnswer = null;
 let questionObj = null;
 const erroSvg = document.querySelector(".commonError-svg");
 const correctSvg = document.querySelector(".commonCorrect-svg");
 const nextBtn = document.querySelector(".next-btn");
+const submitError = document.querySelector(".submit-error");
 // display question
 const questionBox = document.querySelector(".question");
 questionBox.textContent = "";
 function displayQuestion(questionIndex) {
+  submitBtn.style.display = "block";
   questionObj = savedHtmlApi.results[questionIndex];
   questionBox.textContent = `${questionObj.question}`;
 
@@ -86,6 +87,8 @@ submitBtn.addEventListener("click", () => {
     } else {
       console.log("End of questions");
     }
+  } else {
+    submitError.style.display = "block";
   }
 });
 //next question button
