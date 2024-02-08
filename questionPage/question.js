@@ -15,13 +15,20 @@ let currentQuestionIndex = 0;
 const buttonAnswer = document.querySelectorAll(".common-btn");
 const answerBackground = document.querySelector(".variant-btn");
 const submitBtn = document.querySelector(".submit");
+submitBtn.style.display = "block";
+
 let selectedAnswer = null;
+let questionObj = null;
 const erroSvg = document.querySelector(".commonError-svg");
 const correctSvg = document.querySelector(".commonCorrect-svg");
+const nextBtn = document.querySelector(".next-btn");
+// display question
+const questionBox = document.querySelector(".question");
+questionBox.textContent = "";
 function displayQuestion(questionIndex) {
-  const questionObj = savedHtmlApi.results[questionIndex];
-  const questionBox = document.querySelector(".question");
+  questionObj = savedHtmlApi.results[questionIndex];
   questionBox.textContent = `${questionObj.question}`;
+
   //spraid answers in one array
   const answers = [
     ...questionObj.incorrect_answers,
@@ -51,31 +58,44 @@ function displayQuestion(questionIndex) {
       button.style.border = "3px solid  #A729F5";
     });
   });
+}
 
-  submitBtn.addEventListener("click", () => {
-    currentQuestionIndex++;
-
-    if (selectedAnswer == questionObj.correct_answer) {
+submitBtn.addEventListener("click", () => {
+  if (selectedAnswer) {
+    if (
+      selectedAnswer
+        .querySelector(".question-section")
+        .querySelector(".answers").textContent == questionObj.correct_answer
+    ) {
       answerBackground.style.backgroundColor = "#26D782";
-      borderSelectedAnswer.style.border = "3px solid  #26D782";
+      selectedAnswer.style.border = "3px solid  #26D782";
       correctSvg.style.display = "block";
       submitBtn.textContent = "Next Question";
       console.log(2);
     } else {
       answerBackground.style.backgroundColor = "#EE5454";
-      borderSelectedAnswer.style.border = "3px solid  #EE5454";
+      selectedAnswer.style.border = "3px solid  #EE5454";
       erroSvg.style.display = "block";
       submitBtn.textContent = "Next Question";
       console.log("false");
     }
     currentQuestionIndex++;
     if (currentQuestionIndex < savedHtmlApi.results.length) {
-      displayQuestion(currentQuestionIndex);
+      submitBtn.style.display = "none";
+      nextQuestionBtn();
     } else {
       console.log("End of questions");
     }
+  }
+});
+//next question button
+let nextQuestionBtn = () => {
+  nextBtn.style.display = "block";
+  nextBtn.addEventListener("click", () => {
+    displayQuestion(currentQuestionIndex);
   });
-}
+};
+
 displayQuestion(currentQuestionIndex);
 //write fuction witch will shuffle a answers
 function shuffleArray(array) {
