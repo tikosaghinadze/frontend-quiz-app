@@ -3,8 +3,7 @@ const cssBtn = document.getElementById("css-btn");
 const jsBtn = document.getElementById("js-btn");
 const accesBtn = document.getElementById("accessibility");
 
-htmlBtn.addEventListener("click", async (event) => {
-  event.preventDefault();
+htmlBtn.addEventListener("click", async () => {
   try {
     const response = await fetch(
       "https://opentdb.com/api.php?amount=10&category=22"
@@ -18,8 +17,7 @@ htmlBtn.addEventListener("click", async (event) => {
   }
 });
 
-cssBtn.addEventListener("click", async (event) => {
-  event.preventDefault();
+cssBtn.addEventListener("click", async () => {
   try {
     const response = await fetch(
       "https://opentdb.com/api.php?amount=10&category=23"
@@ -33,8 +31,7 @@ cssBtn.addEventListener("click", async (event) => {
   }
 });
 
-jsBtn.addEventListener("click", async (event) => {
-  event.preventDefault();
+jsBtn.addEventListener("click", async () => {
   try {
     const response = await fetch(
       "https://opentdb.com/api.php?amount=10&category=11"
@@ -47,8 +44,7 @@ jsBtn.addEventListener("click", async (event) => {
   }
 });
 
-accesBtn.addEventListener("click", async (event) => {
-  event.preventDefault();
+accesBtn.addEventListener("click", async () => {
   try {
     const response = await fetch(
       "https://opentdb.com/api.php?amount=10&category=18"

@@ -12,10 +12,12 @@ const savedAccesApi = JSON.stringify(savedAccesApiString);
 
 // Iterate over each object in the results array
 let currentQuestionIndex = 0;
-const button = document.querySelectorAll(".answers");
+const buttonAnswer = document.querySelectorAll(".common-btn");
 const answerBackground = document.querySelector(".variant-btn");
 const submitBtn = document.querySelector(".submit");
-
+let selectedAnswer = null;
+const erroSvg = document.querySelector(".commonError-svg");
+const correctSvg = document.querySelector(".commonCorrect-svg");
 function displayQuestion(questionIndex) {
   const questionObj = savedHtmlApi.results[questionIndex];
   const questionBox = document.querySelector(".question");
@@ -27,41 +29,51 @@ function displayQuestion(questionIndex) {
   ];
   const shuffledAnswers = shuffleArray(answers);
   //loop shuffledAnswers amd give content to dives
-  button.forEach((button, index) => {
-    button.textContent = shuffledAnswers[index];
-    // Handle answer selection
-    button.addEventListener("click", (event) => {
-      event.preventDefault();
-      const borderSelectedAnswer = document.querySelector(".common-btn");
-      const selectedAnswer = button.textContent;
-      const erroSvg = document.querySelector(".commonError-svg");
-      const correctSvg = document.querySelector(".commonCorrect-svg");
-      answerBackground.style.backgroundColor = "#A729F5";
-      borderSelectedAnswer.style.border = "3px solid  #A729F5";
-      submitBtn.addEventListener("click", (event) => {
-        event.preventDefault();
-        if (selectedAnswer == questionObj.correct_answer) {
-          answerBackground.style.backgroundColor = "#26D782";
-          borderSelectedAnswer.style.border = "3px solid  #26D782";
-          correctSvg.style.display = "block";
-          submitBtn.textContent = "Next Question";
-          console.log(2);
-        } else {
-          answerBackground.style.backgroundColor = "#EE5454";
-          borderSelectedAnswer.style.border = "3px solid  #EE5454";
-          erroSvg.style.display = "block";
-          submitBtn.textContent = "Next Question";
-          console.log("false");
-        }
-      });
 
-      currentQuestionIndex++;
-      if (currentQuestionIndex < savedHtmlApi.results.length) {
-        displayQuestion(currentQuestionIndex);
-      } else {
-        console.log("End of questions");
+  buttonAnswer.forEach((button, index) => {
+    button
+      .querySelector(".question-section")
+      .querySelector(".answers").textContent = shuffledAnswers[index];
+    // Handle answer selection
+
+    button.addEventListener("click", () => {
+      if (selectedAnswer) {
+        selectedAnswer
+          .querySelector(".question-section")
+          .querySelector(".variant-btn").style.backgroundColor = "#F4F6FA";
+        selectedAnswer.style.border = "none";
       }
+
+      selectedAnswer = button;
+      button
+        .querySelector(".question-section")
+        .querySelector(".variant-btn").style.backgroundColor = "#A729F5";
+      button.style.border = "3px solid  #A729F5";
     });
+  });
+
+  submitBtn.addEventListener("click", () => {
+    currentQuestionIndex++;
+
+    if (selectedAnswer == questionObj.correct_answer) {
+      answerBackground.style.backgroundColor = "#26D782";
+      borderSelectedAnswer.style.border = "3px solid  #26D782";
+      correctSvg.style.display = "block";
+      submitBtn.textContent = "Next Question";
+      console.log(2);
+    } else {
+      answerBackground.style.backgroundColor = "#EE5454";
+      borderSelectedAnswer.style.border = "3px solid  #EE5454";
+      erroSvg.style.display = "block";
+      submitBtn.textContent = "Next Question";
+      console.log("false");
+    }
+    currentQuestionIndex++;
+    if (currentQuestionIndex < savedHtmlApi.results.length) {
+      displayQuestion(currentQuestionIndex);
+    } else {
+      console.log("End of questions");
+    }
   });
 }
 displayQuestion(currentQuestionIndex);
