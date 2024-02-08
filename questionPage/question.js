@@ -1,14 +1,5 @@
-const savedHtmlApiString = localStorage.getItem("htmlApi");
-const savedHtmlApi = JSON.parse(savedHtmlApiString);
-
-const savedCssApiString = localStorage.getItem("cssApi");
-const savedCssApi = JSON.parse(savedCssApiString);
-
-const savedJsApiString = localStorage.getItem("jsApi");
-const savedJsApi = JSON.parse(savedJsApiString);
-
-const savedAccesApiString = localStorage.getItem("accesApi");
-const savedAccesApi = JSON.stringify(savedAccesApiString);
+const savedItemApiString = localStorage.getItem("selectedItem");
+const savedItemApi = JSON.parse(savedItemApiString);
 
 // Iterate over each object in the results array
 let currentQuestionIndex = 0;
@@ -27,7 +18,7 @@ const questionBox = document.querySelector(".question");
 questionBox.textContent = "";
 function displayQuestion(questionIndex) {
   submitBtn.style.display = "block";
-  questionObj = savedHtmlApi.results[questionIndex];
+  questionObj = savedItemApi.results[questionIndex];
   questionBox.textContent = `${questionObj.question}`;
 
   //spraid answers in one array
@@ -71,17 +62,13 @@ submitBtn.addEventListener("click", () => {
       answerBackground.style.backgroundColor = "#26D782";
       selectedAnswer.style.border = "3px solid  #26D782";
       correctSvg.style.display = "block";
-      submitBtn.textContent = "Next Question";
-      console.log(2);
     } else {
       answerBackground.style.backgroundColor = "#EE5454";
       selectedAnswer.style.border = "3px solid  #EE5454";
       erroSvg.style.display = "block";
-      submitBtn.textContent = "Next Question";
-      console.log("false");
     }
     currentQuestionIndex++;
-    if (currentQuestionIndex < savedHtmlApi.results.length) {
+    if (currentQuestionIndex < savedItemApi.results.length) {
       submitBtn.style.display = "none";
       nextQuestionBtn();
     } else {
