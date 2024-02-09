@@ -17,7 +17,11 @@ const submitError = document.querySelector(".submit-error");
 const questionBox = document.querySelector(".question");
 questionBox.textContent = "";
 function displayQuestion(questionIndex) {
+  buttonAnswer.forEach((disabledBtn) => {
+    disabledBtn.disabled = false;
+  });
   submitBtn.style.display = "block";
+  nextBtn.style.display = "none";
   questionObj = savedItemApi.results[questionIndex];
   questionBox.textContent = `${questionObj.question}`;
 
@@ -54,6 +58,9 @@ function displayQuestion(questionIndex) {
 
 submitBtn.addEventListener("click", () => {
   if (selectedAnswer) {
+    buttonAnswer.forEach((disabledBtn) => {
+      disabledBtn.disabled = true;
+    });
     if (
       selectedAnswer
         .querySelector(".question-section")
@@ -62,6 +69,7 @@ submitBtn.addEventListener("click", () => {
       answerBackground.style.backgroundColor = "#26D782";
       selectedAnswer.style.border = "3px solid  #26D782";
       correctSvg.style.display = "block";
+      console.log(selectedAnswer);
     } else {
       answerBackground.style.backgroundColor = "#EE5454";
       selectedAnswer.style.border = "3px solid  #EE5454";
@@ -90,6 +98,14 @@ submitBtn.addEventListener("click", () => {
 let nextQuestionBtn = () => {
   nextBtn.style.display = "block";
   nextBtn.addEventListener("click", () => {
+    buttonAnswer.forEach((borderBtn) => {
+      borderBtn.style.border = "none";
+      borderBtn
+        .querySelector(".question-section")
+        .querySelector(".variant-btn").style.backgroundColor = "#F4F6FA";
+      borderBtn.querySelector(".commonCorrect-svg").style.display = "none";
+      borderBtn.querySelector(".commonError-svg").style.display = "none";
+    });
     displayQuestion(currentQuestionIndex);
   });
 };
