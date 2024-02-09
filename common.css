@@ -63,6 +63,7 @@ body {
   gap: 12px;
 }
 .common-btn {
+  border: none;
   display: flex;
   align-items: center;
   justify-content: space-between;

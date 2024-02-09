@@ -69,7 +69,6 @@ submitBtn.addEventListener("click", () => {
       answerBackground.style.backgroundColor = "#26D782";
       selectedAnswer.style.border = "3px solid  #26D782";
       correctSvg.style.display = "block";
-      console.log(selectedAnswer);
     } else {
       answerBackground.style.backgroundColor = "#EE5454";
       selectedAnswer.style.border = "3px solid  #EE5454";
@@ -96,6 +95,7 @@ submitBtn.addEventListener("click", () => {
 });
 //next question button
 let nextQuestionBtn = () => {
+  selectedAnswer = null;
   nextBtn.style.display = "block";
   nextBtn.addEventListener("click", () => {
     buttonAnswer.forEach((borderBtn) => {
