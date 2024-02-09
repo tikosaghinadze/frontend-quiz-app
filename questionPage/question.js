@@ -66,6 +66,14 @@ submitBtn.addEventListener("click", () => {
       answerBackground.style.backgroundColor = "#EE5454";
       selectedAnswer.style.border = "3px solid  #EE5454";
       erroSvg.style.display = "block";
+      let answersBtn = document.querySelectorAll(".answers");
+      answersBtn.forEach((findCorrect) => {
+        if (findCorrect.textContent == questionObj.correct_answer) {
+          const parentDiv = findCorrect.parentElement;
+          const findCorrectSvg = parentDiv.nextElementSibling;
+          findCorrectSvg.style.display = "block";
+        }
+      });
     }
     currentQuestionIndex++;
     if (currentQuestionIndex < savedItemApi.results.length) {
