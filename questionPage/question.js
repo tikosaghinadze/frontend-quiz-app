@@ -25,7 +25,6 @@ function displayQuestion(questionIndex) {
   });
   submitBtn.style.display = "block";
   nextBtn.style.display = "none";
-  showResultBtn.style.display = "none";
   let length0fArray = savedItemApi.results.length;
   lengthArray.textContent = `${length0fArray}`;
   currentNum.textContent = `${currentQuestionIndex + 1}`;
