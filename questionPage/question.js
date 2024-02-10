@@ -64,6 +64,7 @@ function displayQuestion(questionIndex) {
 
 submitBtn.addEventListener("click", () => {
   if (selectedAnswer) {
+    submitError.style.display = "none";
     buttonAnswer.forEach((disabledBtn) => {
       disabledBtn.disabled = true;
     });
