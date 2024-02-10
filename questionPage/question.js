@@ -23,7 +23,7 @@ function displayQuestion(questionIndex) {
   submitBtn.style.display = "block";
   nextBtn.style.display = "none";
   questionObj = savedItemApi.results[questionIndex];
-  questionBox.textContent = `${questionObj.question}`;
+  questionBox.innerHTML = `${questionObj.question}`;
 
   //spraid answers in one array
   const answers = [
@@ -66,13 +66,18 @@ submitBtn.addEventListener("click", () => {
         .querySelector(".question-section")
         .querySelector(".answers").textContent == questionObj.correct_answer
     ) {
-      answerBackground.style.backgroundColor = "#26D782";
+      selectedAnswer
+        .querySelector(".question-section")
+        .querySelector(".variant-btn").style.backgroundColor = "#26D782";
       selectedAnswer.style.border = "3px solid  #26D782";
-      correctSvg.style.display = "block";
+      selectedAnswer.querySelector(".commonCorrect-svg").style.display =
+        "block";
     } else {
-      answerBackground.style.backgroundColor = "#EE5454";
+      selectedAnswer
+        .querySelector(".question-section")
+        .querySelector(".variant-btn").style.backgroundColor = "#EE5454";
       selectedAnswer.style.border = "3px solid  #EE5454";
-      erroSvg.style.display = "block";
+      selectedAnswer.querySelector(".commonError-svg").style.display = "block";
       let answersBtn = document.querySelectorAll(".answers");
       answersBtn.forEach((findCorrect) => {
         if (findCorrect.textContent == questionObj.correct_answer) {
