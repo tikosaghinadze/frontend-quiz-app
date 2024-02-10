@@ -6,6 +6,7 @@ let currentQuestionIndex = 0;
 const buttonAnswer = document.querySelectorAll(".common-btn");
 const answerBackground = document.querySelector(".variant-btn");
 const submitBtn = document.querySelector(".submit");
+const showResultBtn = document.querySelector(".showresult-btn");
 
 let selectedAnswer = null;
 let questionObj = null;
@@ -24,6 +25,7 @@ function displayQuestion(questionIndex) {
   });
   submitBtn.style.display = "block";
   nextBtn.style.display = "none";
+  showResultBtn.style.display = "none";
   let length0fArray = savedItemApi.results.length;
   lengthArray.textContent = `${length0fArray}`;
   currentNum.textContent = `${currentQuestionIndex + 1}`;
@@ -97,7 +99,11 @@ submitBtn.addEventListener("click", () => {
       submitBtn.style.display = "none";
       nextQuestionBtn();
     } else {
-      window.location.href = "../questionPage./score/score.html";
+      submitBtn.style.display = "none";
+      showResultBtn.style.display = "flex";
+      showResultBtn.addEventListener("click", () => {
+        window.location.href = "../score/score.html";
+      });
     }
   } else {
     submitError.style.display = "block";
