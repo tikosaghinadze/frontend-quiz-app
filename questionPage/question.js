@@ -13,6 +13,8 @@ const erroSvg = document.querySelector(".commonError-svg");
 const correctSvg = document.querySelector(".commonCorrect-svg");
 const nextBtn = document.querySelector(".next-btn");
 const submitError = document.querySelector(".submit-error");
+let lengthArray = document.querySelector(".lenght-arr");
+let currentNum = document.querySelector(".current-num");
 // display question
 const questionBox = document.querySelector(".question");
 questionBox.textContent = "";
@@ -22,6 +24,9 @@ function displayQuestion(questionIndex) {
   });
   submitBtn.style.display = "block";
   nextBtn.style.display = "none";
+  let length0fArray = savedItemApi.results.length;
+  lengthArray.textContent = `${length0fArray}`;
+  currentNum.textContent = `${currentQuestionIndex + 1}`;
   questionObj = savedItemApi.results[questionIndex];
   questionBox.innerHTML = `${questionObj.question}`;
 
@@ -92,7 +97,7 @@ submitBtn.addEventListener("click", () => {
       submitBtn.style.display = "none";
       nextQuestionBtn();
     } else {
-      console.log("End of questions");
+      window.location.href = "../questionPage./score/score.html";
     }
   } else {
     submitError.style.display = "block";
