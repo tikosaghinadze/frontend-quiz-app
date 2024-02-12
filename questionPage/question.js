@@ -10,6 +10,7 @@ const showResultBtn = document.querySelector(".showresult-btn");
 
 let selectedAnswer = null;
 let questionObj = null;
+let countCorrect = 0;
 const erroSvg = document.querySelector(".commonError-svg");
 const correctSvg = document.querySelector(".commonCorrect-svg");
 const nextBtn = document.querySelector(".next-btn");
@@ -25,8 +26,10 @@ function displayQuestion(questionIndex) {
   });
   submitBtn.style.display = "block";
   nextBtn.style.display = "none";
-  let length0fArray = savedItemApi.results.length;
-  lengthArray.textContent = `${length0fArray}`;
+  let lengthOfArray = savedItemApi.results.length;
+  localStorage.setItem("savedLength", lengthOfArray);
+
+  lengthArray.textContent = `${lengthOfArray}`;
   currentNum.textContent = `${currentQuestionIndex + 1}`;
   questionObj = savedItemApi.results[questionIndex];
   questionBox.innerHTML = `${questionObj.question}`;
@@ -73,6 +76,7 @@ submitBtn.addEventListener("click", () => {
         .querySelector(".question-section")
         .querySelector(".answers").textContent == questionObj.correct_answer
     ) {
+      countCorrect++;
       selectedAnswer
         .querySelector(".question-section")
         .querySelector(".variant-btn").style.backgroundColor = "#26D782";
@@ -101,6 +105,7 @@ submitBtn.addEventListener("click", () => {
     } else {
       submitBtn.style.display = "none";
       showResultBtn.style.display = "flex";
+      localStorage.setItem("score", countCorrect);
       showResultBtn.addEventListener("click", () => {
         window.location.href = "../score/score.html";
       });
