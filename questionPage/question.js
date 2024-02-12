@@ -17,6 +17,19 @@ const nextBtn = document.querySelector(".next-btn");
 const submitError = document.querySelector(".submit-error");
 let lengthArray = document.querySelector(".lenght-arr");
 let currentNum = document.querySelector(".current-num");
+const clickedBtnSvg = document.querySelector(".category");
+const clickedBtnTitle = document.querySelector(".category-title");
+const savedBtnSvg = localStorage.getItem("clickedButtonSvg");
+const savedBtnTitle = localStorage.getItem("clickedButtonTitle");
+
+// Convert the strings back to elements
+const parser = new DOMParser();
+const savedBtnSvgElement = parser
+  .parseFromString(savedBtnSvg, "image/svg+xml")
+  .querySelector("svg");
+const savedBtnTitleElement = parser
+  .parseFromString(savedBtnTitle, "text/html")
+  .querySelector("div");
 // display question
 const questionBox = document.querySelector(".question");
 questionBox.textContent = "";
@@ -26,6 +39,13 @@ function displayQuestion(questionIndex) {
   });
   submitBtn.style.display = "block";
   nextBtn.style.display = "none";
+  // Replace the original elements with the saved elements
+  clickedBtnSvg.parentNode.replaceChild(savedBtnSvgElement, clickedBtnSvg);
+  clickedBtnTitle.parentNode.replaceChild(
+    savedBtnTitleElement,
+    clickedBtnTitle
+  );
+
   let lengthOfArray = savedItemApi.results.length;
   localStorage.setItem("savedLength", lengthOfArray);
 

@@ -4,18 +4,23 @@ allBtn.forEach((btn) => {
     const clickedBtn = event.target.id;
     try {
       let apiUrl;
+      let clickedBtnSvg, clickedBtnTitle;
       switch (clickedBtn) {
         case "html-btn":
-          apiUrl = "https://opentdb.com/api.php?amount=10&category=22";
-          break;
         case "css-btn":
-          apiUrl = "https://opentdb.com/api.php?amount=10&category=23";
-          break;
         case "js-btn":
-          apiUrl = "https://opentdb.com/api.php?amount=10&category=11";
-          break;
         case "accessibility":
-          apiUrl = "https://opentdb.com/api.php?amount=10&category=18";
+          clickedBtnSvg = btn
+            .querySelector(".category-btn")
+            .querySelector("svg");
+          clickedBtnTitle = btn
+            .querySelector(".category-btn")
+            .querySelector("div");
+          localStorage.setItem("clickedButtonSvg", clickedBtnSvg.outerHTML);
+          localStorage.setItem("clickedButtonTitle", clickedBtnTitle.outerHTML);
+          apiUrl = `https://opentdb.com/api.php?amount=10&category=${getCategory(
+            clickedBtn
+          )}`;
           break;
       }
       const response = await fetch(apiUrl);
@@ -27,3 +32,18 @@ allBtn.forEach((btn) => {
     }
   });
 });
+
+function getCategory(btnId) {
+  switch (btnId) {
+    case "html-btn":
+      return 22;
+    case "css-btn":
+      return 23;
+    case "js-btn":
+      return 11;
+    case "accessibility":
+      return 18;
+    default:
+      return 0;
+  }
+}

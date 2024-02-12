@@ -43,3 +43,19 @@
   font-weight: 400;
   line-height: 100%;
 }
+.playAgain {
+  display: flex;
+  height: 56px;
+  padding: 12px;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  background: var(--Purple, #a729f5);
+  box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 100%;
+  margin-top: 12px;
+  cursor: pointer;
+}
