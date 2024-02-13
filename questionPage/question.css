@@ -143,3 +143,16 @@
 .variant-btn.selected {
   background-color: var(--Purple, #a729f5);
 }
+/*display category items*/
+#html-btn  {
+ display: none;
+}
+#css-btn  {
+  display: none;
+}
+#js-btn  {
+  display: none;
+}
+#accessibility {
+  display: none;
+}

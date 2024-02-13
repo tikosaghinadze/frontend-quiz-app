@@ -12,15 +12,19 @@ allBtn.forEach((btn) => {
         case "accessibility":
           clickedBtnSvg = btn
             .querySelector(".category-btn")
-            .querySelector("svg");
+            .querySelector("svg")
+            .cloneNode(true);
           clickedBtnTitle = btn
             .querySelector(".category-btn")
-            .querySelector("div");
-          localStorage.setItem("clickedButtonSvg", clickedBtnSvg.outerHTML);
-          localStorage.setItem("clickedButtonTitle", clickedBtnTitle.outerHTML);
+            .querySelector("div").textContent;
+          localStorage.setItem("clickedButtonSvg", clickedBtnSvg);
+          localStorage.setItem("clickedButtonTitle", clickedBtnTitle);
           apiUrl = `https://opentdb.com/api.php?amount=10&category=${getCategory(
             clickedBtn
           )}`;
+          const categoryValue = getCategory(clickedBtn);
+          localStorage.setItem("categoryValue", categoryValue);
+
           break;
       }
       const response = await fetch(apiUrl);

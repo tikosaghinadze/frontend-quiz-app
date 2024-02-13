@@ -1,6 +1,6 @@
 const savedItemApiString = localStorage.getItem("selectedItem");
 const savedItemApi = JSON.parse(savedItemApiString);
-
+console.log(savedItemApi);
 // Iterate over each object in the results array
 let currentQuestionIndex = 0;
 const buttonAnswer = document.querySelectorAll(".common-btn");
@@ -17,19 +17,14 @@ const nextBtn = document.querySelector(".next-btn");
 const submitError = document.querySelector(".submit-error");
 let lengthArray = document.querySelector(".lenght-arr");
 let currentNum = document.querySelector(".current-num");
-const clickedBtnSvg = document.querySelector(".category");
-const clickedBtnTitle = document.querySelector(".category-title");
-const savedBtnSvg = localStorage.getItem("clickedButtonSvg");
-const savedBtnTitle = localStorage.getItem("clickedButtonTitle");
+// get category items
+const htmlBtn = document.querySelector("#html-btn");
+const cssBtn = document.querySelector("#css-btn");
+const jsBtn = document.querySelector("#js-btn");
+const accessBtn = document.querySelector("#accessibility");
+// get end point of url
+const categoryValue = localStorage.getItem("categoryValue");
 
-// Convert the strings back to elements
-const parser = new DOMParser();
-const savedBtnSvgElement = parser
-  .parseFromString(savedBtnSvg, "image/svg+xml")
-  .querySelector("svg");
-const savedBtnTitleElement = parser
-  .parseFromString(savedBtnTitle, "text/html")
-  .querySelector("div");
 // display question
 const questionBox = document.querySelector(".question");
 questionBox.textContent = "";
@@ -39,12 +34,21 @@ function displayQuestion(questionIndex) {
   });
   submitBtn.style.display = "block";
   nextBtn.style.display = "none";
-  // Replace the original elements with the saved elements
-  clickedBtnSvg.parentNode.replaceChild(savedBtnSvgElement, clickedBtnSvg);
-  clickedBtnTitle.parentNode.replaceChild(
-    savedBtnTitleElement,
-    clickedBtnTitle
-  );
+  // display clicked category svg and title
+  switch (categoryValue) {
+    case "22":
+      htmlBtn.style.display = "block";
+      break;
+    case "23":
+      cssBtn.style.display = "block";
+      break;
+    case "11":
+      jsBtn.style.display = "block";
+      beak;
+    case "18":
+      accessBtn.style.display = "block";
+      break;
+  }
 
   let lengthOfArray = savedItemApi.results.length;
   localStorage.setItem("savedLength", lengthOfArray);
