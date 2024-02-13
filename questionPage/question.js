@@ -44,7 +44,7 @@ function displayQuestion(questionIndex) {
       break;
     case "11":
       jsBtn.style.display = "block";
-      beak;
+      break;
     case "18":
       accessBtn.style.display = "block";
       break;

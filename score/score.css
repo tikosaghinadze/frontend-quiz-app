@@ -59,3 +59,53 @@
   margin-top: 12px;
   cursor: pointer;
 }
+/*display category items*/
+#html-btn {
+  display: block;
+}
+#css-btn {
+  display: none;
+}
+#js-btn {
+  display: none;
+}
+#accessibility {
+  display: none;
+}
+/*display category items by class*/
+.html-btn {
+  display: none;
+}
+.css-btn {
+  display: none;
+}
+.js-btn {
+  display: none;
+}
+.accessibility {
+  display: none;
+}
+.html-btn svg {
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: #fff1e9;
+}
+.css-btn svg {
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: #e0fdef;
+}
+.js-btn svg {
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: #ebf0ff;
+}
+.accessibility svg {
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: #f6e7ff;
+}
