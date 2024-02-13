@@ -78,6 +78,9 @@ function displayQuestion(questionIndex) {
           .querySelector(".question-section")
           .querySelector(".variant-btn").style.backgroundColor = "#F4F6FA";
         selectedAnswer.style.border = "none";
+        selectedAnswer
+          .querySelector(".question-section")
+          .querySelector(".variant-btn").style.color = "#626C7F";
       }
 
       selectedAnswer = button;
@@ -151,6 +154,9 @@ let nextQuestionBtn = () => {
       borderBtn
         .querySelector(".question-section")
         .querySelector(".variant-btn").style.backgroundColor = "#F4F6FA";
+      borderBtn
+        .querySelector(".question-section")
+        .querySelector(".variant-btn").style.color = "#626C7F";
       borderBtn.querySelector(".commonCorrect-svg").style.display = "none";
       borderBtn.querySelector(".commonError-svg").style.display = "none";
     });
