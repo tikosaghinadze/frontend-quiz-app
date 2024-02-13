@@ -84,6 +84,9 @@ function displayQuestion(questionIndex) {
       button
         .querySelector(".question-section")
         .querySelector(".variant-btn").style.backgroundColor = "#A729F5";
+      button
+        .querySelector(".question-section")
+        .querySelector(".variant-btn").style.color = "#fff";
       button.style.border = "3px solid  #A729F5";
     });
   });
