@@ -11,6 +11,16 @@ const showResultBtn = document.querySelector(".showresult-btn");
 let selectedAnswer = null;
 let questionObj = null;
 let countCorrect = 0;
+const purpleRect = document.querySelector(".purple-rect");
+const questionRectangle = document.querySelector(".question-rectangle");
+
+const lengthOfArray = savedItemApi.results.length;
+// Calculate the width of the purple rectangle based on the number of questions
+// const purpleRectWidth =
+//   (questionRectangle.offsetWidth / lengthOfArray) * currentQuestionIndex;
+// Get the width of the question rectangle
+const questionRectangleWidth = questionRectangle.offsetWidth;
+
 const erroSvg = document.querySelector(".commonError-svg");
 const correctSvg = document.querySelector(".commonCorrect-svg");
 const nextBtn = document.querySelector(".next-btn");
@@ -50,7 +60,11 @@ function displayQuestion(questionIndex) {
       break;
   }
 
-  let lengthOfArray = savedItemApi.results.length;
+  // Update the width of the purple rectangle
+  const purpleRectWidth =
+    (questionRectangle.offsetWidth / lengthOfArray) * currentQuestionIndex;
+  purpleRect.style.width = `${purpleRectWidth}px`;
+
   localStorage.setItem("savedLength", lengthOfArray);
 
   lengthArray.textContent = `${lengthOfArray}`;
@@ -135,6 +149,8 @@ submitBtn.addEventListener("click", () => {
     } else {
       submitBtn.style.display = "none";
       showResultBtn.style.display = "flex";
+      // If it's the last question, set the width of the purple rectangle to the width of the question rectangle
+      purpleRect.style.width = `${questionRectangleWidth}px`;
       localStorage.setItem("score", countCorrect);
       showResultBtn.addEventListener("click", () => {
         window.location.href = "../score/score.html";
