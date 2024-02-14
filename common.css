@@ -75,6 +75,9 @@ body {
   background: var(--Pure-White, #fff);
   box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
 }
+.common-title {
+  font-weight: 500;
+}
 #html-btn svg {
   border-radius: 5px;
   width: 40px;
@@ -104,4 +107,57 @@ body {
   justify-content: center;
   align-items: center;
   gap: 16px;
+}
+/*MEDIA QUERIES*/
+@media (min-width: 768px) {
+  .main-container {
+    width: 768px;
+    padding: 56px 64px 0;
+  }
+  .section-buttons {
+    gap: 24px;
+  }
+  .category-btn {
+    gap: 32px;
+  }
+  .wellcome-h1 {
+    font-size: 64px;
+  }
+  .frontend-quiz {
+    font-size: 64px;
+  }
+  .pick {
+    font-size: 20px;
+  }
+  .wellcome {
+    margin: 63px 0 64px;
+  }
+  #html-btn svg {
+    width: 56px;
+    height: 56px;
+  }
+  #css-btn svg {
+    width: 56px;
+    height: 56px;
+  }
+  #js-btn svg {
+    width: 56px;
+    height: 56px;
+  }
+  #accessibility svg {
+    width: 56px;
+    height: 56px;
+  }
+  .category-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+  .common-title {
+    font-size: 28px;
+  }
+  body {
+    background-image: url("./images/pattern-background-tablet-light.svg");
+  }
 }

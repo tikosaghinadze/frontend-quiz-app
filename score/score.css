@@ -109,3 +109,45 @@
   height: 40px;
   background-color: #f6e7ff;
 }
+@media (min-width: 768px) {
+  .html-btn svg {
+    width: 56px;
+    height: 56px;
+  }
+  .css-btn svg {
+    width: 56px;
+    height: 56px;
+  }
+  .js-btn svg {
+    width: 56px;
+    height: 56px;
+  }
+  .accessibility svg {
+    width: 56px;
+    height: 56px;
+  }
+  .score-div {
+    padding: 48px;
+    gap: 24px;
+  }
+  .result-score {
+    font-size: 144px;
+  }
+  .outOf {
+    font-size: 24px;
+  }
+  .playAgain {
+    height: 92px;
+    font-size: 28px;
+    margin-top: 32px;
+  }
+  .quiz-completed {
+    font-size: 64px;
+  }
+  .u-scored {
+    font-size: 64px;
+  }
+  .completed {
+    margin: 64px 0;
+  }
+}

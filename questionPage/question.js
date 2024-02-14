@@ -42,7 +42,7 @@ function displayQuestion(questionIndex) {
   buttonAnswer.forEach((disabledBtn) => {
     disabledBtn.disabled = false;
   });
-  submitBtn.style.display = "block";
+  submitBtn.style.display = "flex";
   nextBtn.style.display = "none";
   // display clicked category svg and title
   switch (categoryValue) {
@@ -163,7 +163,7 @@ submitBtn.addEventListener("click", () => {
 //next question button
 let nextQuestionBtn = () => {
   selectedAnswer = null;
-  nextBtn.style.display = "block";
+  nextBtn.style.display = "flex";
   nextBtn.addEventListener("click", () => {
     buttonAnswer.forEach((borderBtn) => {
       borderBtn.style.border = "none";

@@ -76,9 +76,11 @@
   line-height: 100%;
 }
 .submit {
-  display: none;
+  display: flex;
+  padding: 32px;
+  justify-content: center;
+  align-items: center;
   height: 56px;
-  padding: 19px 96px;
   border-radius: 12px;
   background: var(--Purple, #a729f5);
   box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
@@ -90,9 +92,11 @@
   cursor: pointer;
 }
 .next-btn {
-  display: none;
+  display: flex;
+  padding: 32px;
+  justify-content: center;
+  align-items: center;
   height: 56px;
-  padding: 19px 102px;
   border-radius: 12px;
   background: var(--Purple, #a729f5);
   box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
@@ -163,4 +167,39 @@
 }
 #accessibility {
   display: none;
+}
+@media (min-width: 768px) {
+  .count-questions {
+    font-size: 20px;
+  }
+  .question {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+  .question-box {
+    margin-top: 63px;
+  }
+  .showresult-btn {
+    margin-top: 32px;
+    height: 98px;
+    font-size: 28px;
+  }
+  .submit {
+    margin-top: 32px;
+    font-size: 28px;
+    height: 98px;
+  }
+  .next-btn {
+    margin-top: 32px;
+    font-size: 28px;
+    height: 98px;
+  }
+  .variant-btn {
+    width: 56px;
+    height: 56px;
+    font-size: 28px;
+  }
+  .answers {
+    font-size: 28px;
+  }
 }
