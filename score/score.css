@@ -151,3 +151,14 @@
     margin: 64px 0;
   }
 }
+@media (min-width: 1440px) {
+  .completed {
+    margin: 0;
+  }
+  .quiz-completed {
+    width: 452px;
+  }
+  .upload-score-div {
+    width: 100%;
+  }
+}

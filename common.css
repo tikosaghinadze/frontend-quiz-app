@@ -6,6 +6,7 @@
 body {
   font-family: "Rubik", sans-serif;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url("./images/pattern-background-mobile-light.svg");
@@ -14,15 +15,37 @@ body {
 /*mobile start menu styles*/
 .startMenu-header {
   display: flex;
+  width: 375px;
+  padding: 24px;
   justify-content: flex-end;
+}
+.header-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
 }
-.svg-turn {
+.svg-turn-div .svg-turn {
+  width: 12px;
+  height: 12px;
+}
+.header-icons .icon-sunlight {
+  width: 16px;
+  height: 16px;
+}
+.header-icons .svg-moon {
+  width: 16px;
+  height: 16px;
+}
+.svg-turn-div {
   padding: 4px;
   border-radius: 999px;
   background: var(--Purple, #a729f5);
   width: 32px;
   height: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .main-container {
   padding: 16px 24px 0;
@@ -110,7 +133,30 @@ body {
 }
 /*MEDIA QUERIES*/
 @media (min-width: 768px) {
+  .svg-turn-div {
+    width: 48px;
+    height: 28px;
+  }
+  .svg-turn-div .svg-turn {
+    width: 20px;
+    height: 20px;
+  }
+  .header-icons .icon-sunlight {
+    width: 24px;
+    height: 24px;
+  }
+  .header-icons .svg-moon {
+    width: 24px;
+    height: 24px;
+  }
+  .header-icons {
+    gap: 16px;
+  }
   .main-container {
+    width: 768px;
+    padding: 56px 64px 0;
+  }
+  .startMenu-header {
     width: 768px;
     padding: 56px 64px 0;
   }
@@ -159,5 +205,39 @@ body {
   }
   body {
     background-image: url("./images/pattern-background-tablet-light.svg");
+  }
+}
+@media (min-width: 1440px) {
+  body {
+    background-image: url("./images/pattern-background-desktop-light.svg");
+    background-size: cover;
+  }
+  .main-container {
+    flex-direction: row;
+    width: 1160px;
+    gap: 95px;
+    margin-top: 95px;
+  }
+  .startMenu-header {
+    width: 1160px;
+    padding: 97px 64px 0;
+  }
+  .header-icons {
+    gap: 16px;
+  }
+  .section-buttons {
+    width: 100%;
+  }
+  .wellcome {
+    margin: 0;
+  }
+  .wellcome-h1 {
+    width: 452px;
+  }
+  .pick {
+    margin-top: 48px;
+  }
+  .common-btn {
+    height: 96px;
   }
 }

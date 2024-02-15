@@ -2,6 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 375px;
+  padding: 24px;
 }
 .header-icons {
   gap: 8px;
@@ -169,6 +171,13 @@
   display: none;
 }
 @media (min-width: 768px) {
+  .header-icons {
+    gap: 16px;
+  }
+  .startQuestion-header {
+    width: 768px;
+    padding: 56px 64px 0;
+  }
   .count-questions {
     font-size: 20px;
   }
@@ -201,5 +210,24 @@
   }
   .answers {
     font-size: 28px;
+  }
+}
+@media (min-width: 1440px) {
+  .startQuestion-header {
+    width: 1160px;
+    padding: 97px 64px 0;
+  }
+  .question-rectangle {
+    margin-top: 168px;
+  }
+  .question {
+    margin-top: 27px;
+    width: 452px;
+  }
+  .common-btn {
+    height: 96px;
+  }
+  .question-box {
+    margin: 0;
   }
 }
