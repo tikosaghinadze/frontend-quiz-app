@@ -77,7 +77,27 @@ const categoryCommonTitle = document.querySelectorAll(".common-title");
 
 let isDarkMode = false;
 
+// Function to change background photo based on screen size
+function changeBackgroundPhoto() {
+  if (window.innerWidth >= 1440) {
+    bodyElement.style.backgroundImage =
+      "url(/images/pattern-background-desktop-dark.svg)";
+  } else if (window.innerWidth >= 768) {
+    bodyElement.style.backgroundImage =
+      "url(/images/pattern-background-tablet-dark.svg)";
+  } else {
+    bodyElement.style.backgroundImage =
+      "url(./images/pattern-background-mobile-dark.svg";
+  }
+}
+
+// Toggle dark mode when darkMode button is clicked
 darkMode.addEventListener("click", () => {
+  // Call the function initially to set the background photo based on the current screen size
+  changeBackgroundPhoto();
+
+  // Call the function whenever the window is resized to update the background photo accordingly
+  window.addEventListener("resize", changeBackgroundPhoto);
   // Toggle dark mode state
   isDarkMode = !isDarkMode;
 
@@ -90,8 +110,6 @@ darkMode.addEventListener("click", () => {
     darkMode.style.justifyContent = "flex-end";
     darkMode.style.transition =
       "transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)";
-    bodyElement.style.backgroundImage =
-      "url(./images/pattern-background-mobile-dark.svg)";
     bodyElement.style.backgroundColor = "#313E51";
 
     darkSun.style.display = "block";
@@ -109,15 +127,15 @@ darkMode.addEventListener("click", () => {
     });
   } else {
     // Apply light mode styles
-    //reset to default
+    // Reset styles to default
     wellcome.style.color = "";
     frontendQuiz.style.color = "";
-    pick.style.color = ""; //
+    pick.style.color = "";
 
     darkMode.style.justifyContent = "";
     darkMode.style.transition = "";
-    bodyElement.style.backgroundImage = "";
-    bodyElement.style.backgroundColor = "";
+    bodyElement.style.backgroundImage = ""; // Reset background image
+    bodyElement.style.backgroundColor = ""; // Reset background color
 
     darkSun.style.display = "none";
     lightSun.style.display = "block";
