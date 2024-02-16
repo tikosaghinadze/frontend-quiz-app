@@ -51,3 +51,26 @@ function getCategory(btnId) {
       return 0;
   }
 }
+const wellcome = document.querySelector(".wellcome-h1");
+const frontendQuiz = document.querySelector(".frontend-quiz");
+const categoryCommonTitle = document.querySelectorAll(".common-title");
+const pick = document.querySelector(".pick");
+// Change styles when dark mode is toggled
+darkMode.addEventListener("click", () => {
+  if (isDarkMode) {
+    wellcome.style.color = "#fff";
+    frontendQuiz.style.color = "#fff";
+    categoryCommonTitle.forEach((title) => {
+      title.style.color = "#fff";
+    });
+    pick.style.color = "#ABC1E1";
+  } else {
+    //reset default styles
+    wellcome.style.color = "";
+    frontendQuiz.style.color = "";
+    categoryCommonTitle.forEach((title) => {
+      title.style.color = "";
+    });
+    pick.style.color = "";
+  }
+});

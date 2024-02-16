@@ -15,9 +15,9 @@ const lightMoon = document
   .querySelector(".header-icons")
   .querySelector(".light-moon");
 
-//To achieve toggling between light and dark modes
+// To achieve toggling between light and dark modes
 
-let isDarkMode = false;
+let isDarkMode = getDarkMode();
 
 // Function to change background photo based on screen size
 function changeBackgroundPhoto() {
@@ -29,41 +29,15 @@ function changeBackgroundPhoto() {
       "url(/images/pattern-background-tablet-dark.svg)";
   } else {
     bodyElement.style.backgroundImage =
-      "url(./images/pattern-background-mobile-dark.svg";
+      "url(/images/pattern-background-mobile-dark.svg)";
   }
 }
 
-// Toggle dark mode when darkMode button is clicked
-darkMode.addEventListener("click", () => {
-  // Call the function initially to set the background photo based on the current screen size
+function checkeMode() {
   changeBackgroundPhoto();
-
-  // Call the function whenever the window is resized to update the background photo accordingly
   window.addEventListener("resize", changeBackgroundPhoto);
-  // Toggle dark mode state
-  isDarkMode = !isDarkMode;
-
-  if (isDarkMode) {
-    // Apply dark mode styles
-
-    darkMode.style.justifyContent = "flex-end";
-    darkMode.style.transition =
-      "transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)";
-    bodyElement.style.backgroundColor = "#313E51";
-
-    darkSun.style.display = "block";
-    lightSun.style.display = "none";
-    darkMoon.style.display = "block";
-    lightMoon.style.display = "none";
-
-    darkCommonBtn.forEach((btn) => {
-      btn.style.backgroundColor = "#3B4D66";
-      btn.style.boxShadow = "none";
-    });
-  } else {
+  if (!isDarkMode) {
     // Apply light mode styles
-    // Reset styles to default
-
     darkMode.style.justifyContent = "";
     darkMode.style.transition = "";
     bodyElement.style.backgroundImage = ""; // Reset background image
@@ -78,5 +52,45 @@ darkMode.addEventListener("click", () => {
       btn.style.backgroundColor = "";
       btn.style.boxShadow = "";
     });
+  } else {
+    // Apply dark mode styles
+    darkMode.style.justifyContent = "flex-end";
+    darkMode.style.transition =
+      "transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)";
+    bodyElement.style.backgroundColor = "#313E51";
+
+    darkSun.style.display = "block";
+    lightSun.style.display = "none";
+    darkMoon.style.display = "block";
+    lightMoon.style.display = "none";
+
+    darkCommonBtn.forEach((btn) => {
+      btn.style.backgroundColor = "#3B4D66";
+      btn.style.boxShadow = "none";
+    });
   }
+}
+checkeMode();
+
+// Toggle dark mode when darkMode button is clicked
+darkMode.addEventListener("click", () => {
+  // Call the function initially to set the background photo based on the current screen size
+  changeBackgroundPhoto();
+
+  // Call the function whenever the window is resized to update the background photo accordingly
+  window.addEventListener("resize", changeBackgroundPhoto);
+  // Toggle dark mode state
+  isDarkMode = !isDarkMode;
+
+  checkeMode();
+
+  // Save the dark mode state in local storage
+  setDarkMode(isDarkMode);
 });
+
+function setDarkMode(isDarkMode) {
+  localStorage.setItem("darkMode", isDarkMode);
+}
+function getDarkMode() {
+  return localStorage.getItem("darkMode") === "true";
+}

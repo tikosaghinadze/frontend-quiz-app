@@ -189,3 +189,12 @@ function shuffleArray(array) {
   }
   return array;
 }
+// Change styles when dark mode is toggled
+darkMode.addEventListener("click", () => {
+  if (isDarkMode) {
+    // Apply dark mode styles for page 1
+   
+  } else {
+    
+  }
+});
