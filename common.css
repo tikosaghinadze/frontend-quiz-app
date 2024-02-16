@@ -13,6 +13,12 @@ body {
   background-repeat: no-repeat;
 }
 /*mobile start menu styles*/
+.dark-sun {
+  display: none;
+}
+.dark-moon {
+  display: none;
+}
 .startMenu-header {
   display: flex;
   width: 375px;

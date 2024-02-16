@@ -51,3 +51,86 @@ function getCategory(btnId) {
       return 0;
   }
 }
+
+const darkMode = document.querySelector(".svg-turn-div");
+const darkModeBall = document.querySelector(".svg-turn");
+const bodyElement = document.body;
+const darkCommonBtn = document.querySelectorAll(".common-btn");
+const darkSun = document
+  .querySelector(".header-icons")
+  .querySelector(".dark-sun");
+const lightSun = document
+  .querySelector(".header-icons")
+  .querySelector(".light-sun");
+const darkMoon = document
+  .querySelector(".header-icons")
+  .querySelector(".dark-moon");
+const lightMoon = document
+  .querySelector(".header-icons")
+  .querySelector(".light-moon");
+const wellcome = document.querySelector(".wellcome-h1");
+const frontendQuiz = document.querySelector(".frontend-quiz");
+const pick = document.querySelector(".pick");
+const categoryCommonTitle = document.querySelectorAll(".common-title");
+
+//To achieve toggling between light and dark modes
+
+let isDarkMode = false;
+
+darkMode.addEventListener("click", () => {
+  // Toggle dark mode state
+  isDarkMode = !isDarkMode;
+
+  if (isDarkMode) {
+    // Apply dark mode styles
+    wellcome.style.color = "#fff";
+    frontendQuiz.style.color = "#fff";
+    pick.style.color = "#ABC1E1";
+
+    darkMode.style.justifyContent = "flex-end";
+    darkMode.style.transition =
+      "transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)";
+    bodyElement.style.backgroundImage =
+      "url(./images/pattern-background-mobile-dark.svg)";
+    bodyElement.style.backgroundColor = "#313E51";
+
+    darkSun.style.display = "block";
+    lightSun.style.display = "none";
+    darkMoon.style.display = "block";
+    lightMoon.style.display = "none";
+
+    darkCommonBtn.forEach((btn) => {
+      btn.style.backgroundColor = "#3B4D66";
+      btn.style.boxShadow = "none";
+    });
+
+    categoryCommonTitle.forEach((title) => {
+      title.style.color = "#fff";
+    });
+  } else {
+    // Apply light mode styles
+    //reset to default
+    wellcome.style.color = "";
+    frontendQuiz.style.color = "";
+    pick.style.color = ""; //
+
+    darkMode.style.justifyContent = "";
+    darkMode.style.transition = "";
+    bodyElement.style.backgroundImage = "";
+    bodyElement.style.backgroundColor = "";
+
+    darkSun.style.display = "none";
+    lightSun.style.display = "block";
+    darkMoon.style.display = "none";
+    lightMoon.style.display = "block";
+
+    darkCommonBtn.forEach((btn) => {
+      btn.style.backgroundColor = "";
+      btn.style.boxShadow = "";
+    });
+
+    categoryCommonTitle.forEach((title) => {
+      title.style.color = "";
+    });
+  }
+});
