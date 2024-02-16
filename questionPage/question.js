@@ -19,7 +19,7 @@ const lengthOfArray = savedItemApi.results.length;
 // const purpleRectWidth =
 //   (questionRectangle.offsetWidth / lengthOfArray) * currentQuestionIndex;
 // Get the width of the question rectangle
-const questionRectangleWidth = questionRectangle.offsetWidth;
+const questionRectangleWidth = questionRectangle.offsetWidth - 8;
 
 const erroSvg = document.querySelector(".commonError-svg");
 const correctSvg = document.querySelector(".commonCorrect-svg");
@@ -190,11 +190,50 @@ function shuffleArray(array) {
   return array;
 }
 // Change styles when dark mode is toggled
+//get elements
+const countQuestion = document.querySelector(".count-questions");
+const answers = document.querySelectorAll(".answers");
+const commontitle = document.querySelectorAll(".common-title");
+if (isDarkMode) {
+  // Apply dark mode style
+  countQuestion.style.color = "#ABC1E1";
+  questionBox.style.color = "#fff";
+  answers.forEach((ans) => {
+    ans.style.color = "#fff";
+  });
+  commontitle.forEach((title) => {
+    title.style.color = "#fff";
+  });
+} else {
+  countQuestion.style.color = "";
+  questionBox.style.color = "";
+  answers.forEach((ans) => {
+    ans.style.color = "";
+  });
+  commontitle.forEach((title) => {
+    title.style.color = "";
+  });
+}
+
 darkMode.addEventListener("click", () => {
   if (isDarkMode) {
-    // Apply dark mode styles for page 1
-   
+    // Apply dark mode style
+    countQuestion.style.color = "#ABC1E1";
+    questionBox.style.color = "#fff";
+    answers.forEach((ans) => {
+      ans.style.color = "#fff";
+    });
+    commontitle.forEach((title) => {
+      title.style.color = "#fff";
+    });
   } else {
-    
+    countQuestion.style.color = "";
+    questionBox.style.color = "";
+    answers.forEach((ans) => {
+      ans.style.color = "";
+    });
+    commontitle.forEach((title) => {
+      title.style.color = "";
+    });
   }
 });

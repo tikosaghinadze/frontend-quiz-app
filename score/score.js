@@ -44,10 +44,51 @@ switch (categoryValue) {
     accessBtnByClass.style.display = "block";
     break;
 }
+//get elements
+const categorytitle = document.querySelectorAll(".common-title");
+const scoreDiv = document.querySelector(".score-div");
+const quizCompleted = document.querySelector(".quiz-completed");
+const uScored = document.querySelector(".u-scored");
+const outOf = document.querySelector(".outOf");
 // Change styles when dark mode is toggled
+if (isDarkMode) {
+  categorytitle.forEach((title) => {
+    title.style.color = "#fff";
+  });
+  scoreDiv.style.backgroundColor = "#3B4D66";
+  quizCompleted.style.color = "#fff";
+  uScored.style.color = "#fff";
+  scoreOfAnswers.style.color = "#fff";
+  outOf.style.color = "#ABC1E1";
+} else {
+  categorytitle.forEach((title) => {
+    title.style.color = "";
+  });
+  scoreDiv.style.backgroundColor = "";
+  quizCompleted.style.color = "";
+  uScored.style.color = "";
+  scoreOfAnswers.style.color = "";
+  outOf.style.color = "";
+}
 darkMode.addEventListener("click", () => {
   if (isDarkMode) {
-    // Apply dark mode styles for page 1
+    categorytitle.forEach((title) => {
+      title.style.color = "#fff";
+    });
+    scoreDiv.style.backgroundColor = "#3B4D66";
+    quizCompleted.style.color = "#fff";
+    uScored.style.color = "#fff";
+    scoreOfAnswers.style.color = "#fff";
+    outOf.style.color = "#ABC1E1";
   } else {
+    categorytitle.forEach((title) => {
+      title.style.color = "";
+    });
+    scoreDiv.style.backgroundColor = "";
+    quizCompleted.style.color = "";
+    uScored.style.color = "";
+    scoreOfAnswers.style.color = "";
+    outOf.style.color = "";
   }
 });
+console.log(scoreDiv);
